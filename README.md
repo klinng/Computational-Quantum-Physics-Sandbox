@@ -4,7 +4,7 @@ This project is an educational sandbox designed to directly apply the theoretica
 
 ## 🗺️ Semester Roadmap
 
-- [ ] **Module 1: The Matrix Engine** (Aligned with: *Simulations numériques*)
+- [X] **Module 1: The Matrix Engine** (Aligned with: *Simulations numériques*)
   - Discretize continuous calculus space into digital grids.
   - Approximate physical derivatives using the finite difference method.
   - Construct physical operators as computational matrices.
