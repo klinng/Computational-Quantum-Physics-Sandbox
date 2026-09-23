@@ -1,28 +1,35 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-print("=== Module 1: The Matrix Engine (With Plotting) ===")
+print("=== Module 1: The Matrix Engine (True Matrix Construction) ===")
 
-# 1. Set up a fine grid representing time (0 to 2 seconds, 100 steps)
-time_grid = np.linspace(0, 2, 100)
-dt = time_grid[1] - time_grid[0]  # The tiny spacing between points
+# 1. Discretize a spatial grid from 0 to 5 meters using only 6 points (to keep it readable)
+N = 6
+spatial_grid = np.linspace(0, 5, N)
+print(f"\n1. Digital Grid Points (x):\n{spatial_grid}")
 
-# 2. Physics Equation: Position of a falling particle over time: y(t) = 0.5 * g * t^2
-g = 9.81  # Gravity constant (m/s^2)
-position = 0.5 * g * time_grid**2
+# 2. Construct the POSITION OPERATOR (X) as a diagonal matrix
+# This is a true matrix where the grid values live on the main diagonal
+X_operator = np.diag(spatial_grid)
+print(f"\n2. Position Operator Matrix [X]:\n{X_operator}")
 
-# 3. Compute the Derivative (Velocity) using Finite Differences
-velocity = np.diff(position) / dt
+# 3. Construct a Finite Difference DERIVATIVE OPERATOR (D) Matrix
+# This matrix will automatically compute differences between neighboring points
+D_operator = (np.diag(np.ones(N-1), 1) - np.diag(np.ones(N-1), -1)) / 2.0
+print(f"\n3. Numerical Derivative Matrix Operator [D]:\n{D_operator}")
 
-# 4. Generate and Save the Visual Graph Chart
-# Note: velocity has 99 points because np.diff reduces the size by 1, so we use time_grid[1:]
-plt.plot(time_grid[1:], velocity, label="Calculated Velocity (m/s)", color="blue", linewidth=2)
-plt.title("Particle Velocity Over Time (Numerical Simulation)")
-plt.xlabel("Time (seconds)")
-plt.ylabel("Velocity (m/s)")
-plt.grid(True)
-plt.legend()
+# 4. Generate a quick visualization of our operators
+plt.figure(figsize=(10, 4))
+plt.subplot(1, 2, 1)
+plt.imshow(X_operator, cmap='Blues')
+plt.title("Position Operator Matrix Visual")
+plt.colorbar()
 
-# Save the plot as an image file in your project folder
-plt.savefig("velocity_plot.png")
-print("Simulation successful! Visual chart saved as 'velocity_plot.png'")
+plt.subplot(1, 2, 2)
+plt.imshow(D_operator, cmap='RdBu')
+plt.title("Derivative Operator Matrix Visual")
+plt.colorbar()
+
+# Save the real matrix visualization image
+plt.savefig("matrix_operator_visualization.png")
+print("\nSimulation successful! Matrix visuals saved as 'matrix_operator_visualization.png'")
