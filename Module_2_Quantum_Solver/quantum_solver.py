@@ -79,3 +79,16 @@ plt.close()
 print(f"\nSuccess! Both isolated files have been saved in your module folder:")
 print(f"-> 🟥 Matrix Grid Graph: quantum_hamiltonian_grid.png")
 print(f"-> 📈 Physical Wave Graph: quantum_states_plot.png")
+
+# --- CONVERTING TO HUMAN REALITY (SI UNITS) ---
+hbar_SI = 1.054571817e-34  # J·s (Planck's constant / 2pi)
+m_electron_SI = 9.1093837e-31  # kg (Mass of an electron)
+L_meters = 1e-10  # Let's say our quantum box is 1 Angstrom wide (size of an atom)
+
+# Conversion factor from our code units to real Joules
+conversion_factor = (hbar_SI**2) / (m_electron_SI * L_meters**2)
+
+print("\n--- Real World SI Units Conversion (Joules) ---")
+for i in range(3):
+    real_energy_joules = energy_levels[i] * conversion_factor
+    print(f"   -> Real Energy State E_{i+1}: {real_energy_joules:.4e} Joules")
