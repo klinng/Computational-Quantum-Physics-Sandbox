@@ -11,7 +11,7 @@ This project is an educational sandbox designed to directly apply the theoretica
 
 - [X] **Module 2: The Quantum State Solver** (Aligned with: *Mécanique quantique*)
   - Numerically solve the Time-Independent Schrödinger Equation.
-  - Calculate exact energy levels (eigenvalues) and wavefunctions (eigenvectors).
+  - Calculate numerical approximations of energy levels (eigenvalues) and wavefunctions (eigenvectors).
   - Visualize the probability densities of a trapped quantum particle.
 
 - [X] **Module 3: The Thermal Bath** (Aligned with: *Physique Statistique*)
@@ -22,7 +22,7 @@ This project is an educational sandbox designed to directly apply the theoretica
 - [X] **🚀 The Grand Finale: The Quantum Spin Chain (Quantum Ising Model)**
   - Merge Modules 1, 2, and 3 into a single unified framework.
   - Simulate interactions between multiple neighboring quantum spins.
-  - Investigate how environmental temperature destroys quantum entanglement (decoherence).
+  - Investigate how temperature affects correlations and quantum properties in an interacting spin chain.
 
 ## 🛠️ Planned Tech Stack
 - **Language:** Python 3
