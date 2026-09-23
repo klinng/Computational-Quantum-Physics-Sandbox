@@ -9,7 +9,7 @@ This project is an educational sandbox designed to directly apply the theoretica
   - Approximate physical derivatives using the finite difference method.
   - Construct physical operators as computational matrices.
 
-- [ ] **Module 2: The Quantum State Solver** (Aligned with: *Mécanique quantique*)
+- [X] **Module 2: The Quantum State Solver** (Aligned with: *Mécanique quantique*)
   - Numerically solve the Time-Independent Schrödinger Equation.
   - Calculate exact energy levels (eigenvalues) and wavefunctions (eigenvectors).
   - Visualize the probability densities of a trapped quantum particle.
