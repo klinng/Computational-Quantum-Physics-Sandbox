@@ -19,7 +19,7 @@ This project is an educational sandbox designed to directly apply the theoretica
   - Compute partition functions and Boltzmann probabilities.
   - Observe physical phase transitions as a function of temperature.
 
-- [ ] **🚀 The Grand Finale: The Quantum Spin Chain (Quantum Ising Model)**
+- [X] **🚀 The Grand Finale: The Quantum Spin Chain (Quantum Ising Model)**
   - Merge Modules 1, 2, and 3 into a single unified framework.
   - Simulate interactions between multiple neighboring quantum spins.
   - Investigate how environmental temperature destroys quantum entanglement (decoherence).
