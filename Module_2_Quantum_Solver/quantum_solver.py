@@ -34,7 +34,7 @@ energy_levels, wavefunctions = la.eigh(H_kinetic)
 print(f"\n3. Schrödinger Equation Solved!")
 print("   --- Numerical Energy Levels (Eigenvalues) ---")
 for i in range(3):
-    print(f"   -> State n = {i+1} (E_{i+1}): {energy_levels[i]:.4f} energy units")
+    print(f"   -> State n = {i+1} (E_{i}): {energy_levels[i]:.4f} energy units")
 
 # 4. DEFINE ISOLATED DIRECTORY FILE PATHS
 script_directory = os.path.dirname(os.path.abspath(__file__))
