@@ -14,7 +14,7 @@ This project is an educational sandbox designed to directly apply the theoretica
   - Calculate exact energy levels (eigenvalues) and wavefunctions (eigenvectors).
   - Visualize the probability densities of a trapped quantum particle.
 
-- [ ] **Module 3: The Thermal Bath** (Aligned with: *Physique Statistique*)
+- [X] **Module 3: The Thermal Bath** (Aligned with: *Physique Statistique*)
   - Model classical thermal fluctuations using the Metropolis-Hastings algorithm.
   - Compute partition functions and Boltzmann probabilities.
   - Observe physical phase transitions as a function of temperature.
