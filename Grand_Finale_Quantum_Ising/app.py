@@ -79,3 +79,4 @@ ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
 st.pyplot(fig)
+# python -m streamlit run "Grand_Finale_Quantum_Ising/app.py"
