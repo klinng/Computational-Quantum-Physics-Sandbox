@@ -1,35 +1,37 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-print("=== Module 1: The Matrix Engine (True Matrix Construction) ===")
+print("=== The Matrix Engine in Action (Module 1 Isolated) ===")
 
-# 1. Discretize a spatial grid from 0 to 5 meters using only 6 points (to keep it readable)
-N = 6
-spatial_grid = np.linspace(0, 5, N)
-print(f"\n1. Digital Grid Points (x):\n{spatial_grid}")
+# 1. Create a fine grid of 50 space points
+N = 50
+spatial_grid = np.linspace(0, 2 * np.pi, N)
+dx = spatial_grid[1] - spatial_grid[0]  # Exact step spacing calculation
 
-# 2. Construct the POSITION OPERATOR (X) as a diagonal matrix
-# This is a true matrix where the grid values live on the main diagonal
-X_operator = np.diag(spatial_grid)
-print(f"\n2. Position Operator Matrix [X]:\n{X_operator}")
+# 2. Build the Derivative Matrix Operator (The 0.5 and -0.5 stripes)
+D_operator = (np.diag(np.ones(N-1), 1) - np.diag(np.ones(N-1), -1)) / (2.0 * dx)
 
-# 3. Construct a Finite Difference DERIVATIVE OPERATOR (D) Matrix
-# This matrix will automatically compute differences between neighboring points
-D_operator = (np.diag(np.ones(N-1), 1) - np.diag(np.ones(N-1), -1)) / 2.0
-print(f"\n3. Numerical Derivative Matrix Operator [D]:\n{D_operator}")
+# 3. Define a Physical State: A Quantum Wavefunction Psi = sin(x)
+psi = np.sin(spatial_grid)
 
-# 4. Generate a quick visualization of our operators
-plt.figure(figsize=(10, 4))
-plt.subplot(1, 2, 1)
-plt.imshow(X_operator, cmap='Blues')
-plt.title("Position Operator Matrix Visual")
-plt.colorbar()
+# 4. Let the Matrix calculate the derivative automatically!
+calculated_derivative = np.dot(D_operator, psi)
 
-plt.subplot(1, 2, 2)
-plt.imshow(D_operator, cmap='RdBu')
-plt.title("Derivative Operator Matrix Visual")
-plt.colorbar()
+# 5. Generate the Visual Chart
+plt.figure(figsize=(8, 5))
+plt.plot(spatial_grid, psi, label=r"Original Wave ($\psi = \sin(x)$)", color="blue", linewidth=2)
+plt.plot(spatial_grid, calculated_derivative, label=r"Matrix Derivative ($d\psi/dx \approx \cos(x)$)", color="red", linestyle="--", linewidth=2)
+plt.title("Matrix Engine: Deriving a Quantum Wavefunction")
+plt.xlabel("Position (x)")
+plt.ylabel("Amplitude")
+plt.grid(True)
+plt.legend()
 
-# Save the real matrix visualization image
-plt.savefig("matrix_operator_visualization.png")
-print("\nSimulation successful! Matrix visuals saved as 'matrix_operator_visualization.png'")
+# 6. Module Isolation Layer: Force the image to save INSIDE the script's folder
+script_directory = os.path.dirname(os.path.abspath(__file__))
+output_image_path = os.path.join(script_directory, "wavefunction_derivative_plot.png")
+
+# Save the plot securely to its own module space
+plt.savefig(output_image_path)
+print(f"\nSimulation successful! Visual chart isolated inside: \n-> {output_image_path}")
