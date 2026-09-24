@@ -10,8 +10,11 @@ spatial_grid = np.linspace(0, 2 * np.pi, N)
 dx = spatial_grid[1] - spatial_grid[0]  # Exact step spacing calculation
 
 # 2. Build BOTH Physical Operators as Computational Matrices
-X_operator = np.diag(spatial_grid)  # POSITION OPERATOR (X)
-D_operator = (np.diag(np.ones(N-1), 1) - np.diag(np.ones(N-1), -1)) / (2.0 * dx)  # DERIVATIVE OPERATOR (D)
+X_operator = np.diag(spatial_grid)  # x_psi = X_operator @ psi
+D_operator = (
+    np.diag(np.ones(N-1), 1)
+    - np.diag(np.ones(N-1), -1)
+) / (2.0 * dx)  # DERIVATIVE OPERATOR (D)
 
 # 3. Define a Physical State: A Quantum Wavefunction Psi = sin(x)
 psi = np.sin(spatial_grid)
