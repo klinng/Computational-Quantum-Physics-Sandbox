@@ -1,4 +1,4 @@
- # 🌌 Computational & Quantum Physics Journey (Master 1)
+# 🌌 Computational & Quantum Physics Journey (Master 1)
 
 This project is an educational computational-physics sandbox developed alongside my first year of Master's studies in Physics. The ultimate goal is to turn mathematical and physical concepts from my coursework into numerical experiments through a progressive journey where each module builds the foundations for the next.
 
@@ -22,7 +22,7 @@ This project is an educational computational-physics sandbox developed alongside
   - Estimate specific heat and magnetic susceptibility from energy and magnetization fluctuations.
   - *Note: This classical model does not exhibit a finite-temperature phase transition in the thermodynamic limit.*
 
-- [X] **🚀 Module 4: The Quantum Spin Chain (The Grand Finale)**
+- [X] **Module 4: The Quantum Spin Chain**
   - Merge the numerical linear-algebra foundations with quantum many-body physics by moving from the classical Ising model to its quantum counterpart.
   - Construct a quantum Hamiltonian in the many-body Hilbert space using Pauli operators.
   - Study the transverse-field Ising Hamiltonian:
@@ -32,16 +32,25 @@ This project is an educational computational-physics sandbox developed alongside
   - Calculate quantum energy eigenvalues/eigenstates and investigate how the external transverse field modifies the system.
   - Explore thermal occupation of quantum states and calculate quantum observables using the Gibbs distribution.
 
+- [X] **🚀 Module 5: Open Quantum Systems & Time Dynamics (The Grand Finale)**
+  - Extend quantum state evolution to open quantum systems coupled to an external environment.
+  - Implement time-dependent wavepacket evolution and unitary unitary operators ($U(t) = e^{-iHt/\hbar}$).
+  - Solve the Lindblad master equation for non-unitary density matrix dynamics ($\rho$):
+    ```math
+    \frac{d\rho}{dt} = -\frac{i}{\hbar}[H, \rho] + \sum_k \left( L_k \rho L_k^\dagger - \frac{1}{2} \{L_k^\dagger L_k, \rho\} \right)
+    ```
+  - Investigate quantum decoherence, dissipation, and bipartite entanglement entropy ($S = -\text{Tr}(\rho \ln \rho)$).
+
 ## 🧠 Core Competencies Demonstrated
 
-* **Numerical Methods:** Finite-difference discretization, matrix representations, and eigenvalue/eigenvector solvers.
-* **Statistical & Quantum Physics:** Monte Carlo sampling, thermal fluctuations, many-body Hilbert spaces, and quantum Hamiltonians.
+* **Numerical Methods:** Finite-difference discretization, matrix representations, unitary time propagation, and eigenvalue/eigenvector solvers.
+* **Statistical & Quantum Physics:** Monte Carlo sampling, thermal fluctuations, many-body Hilbert spaces, density matrix formalism, and open quantum systems.
 * **Analysis:** Scientific visualization, interactive data analysis, and bridging theoretical physics with programming.
 
 ## 🛠️ Tech Stack
 
 * **Language:** Python 3
-* **Libraries:** NumPy (numerical arrays), SciPy (scientific solvers), Matplotlib (visualization), Streamlit (interactive dashboards).
+* **Libraries:** NumPy (numerical arrays), SciPy (scientific solvers & sparse matrices), Matplotlib (visualization), Streamlit (interactive dashboards).
 
 ## 📁 Project Structure
 
@@ -51,12 +60,12 @@ Computational-Quantum-Physics-Sandbox/
 ├── Module_1_Matrix_Engine/      # Grid discretization & finite differences
 ├── Module_2_Quantum_Solver/     # 1D Schrödinger equation solver
 ├── Module_3_Thermal_Bath/        # Classical Ising model & Monte Carlo
-├── Module_4_Quantum_Ising/      # Many-body quantum spin chain (Grand Finale)
+├── Module_4_Quantum_Ising/      # Many-body quantum spin chain
+├── Module_5_Quantum_Systems/    # Open quantum dynamics & Lindblad master equation (Grand Finale)
 │
 ├── README.md
 └── requirements.txt
-```
 
 ## 🎯 Long-Term Goal
 
-To develop a stronger connection between theoretical physics, numerical methods, and programming. Future extensions will include advanced numerical methods, larger quantum systems, time-dependent simulations, and computational projects connected to research-level physics.
+To develop a stronger connection between theoretical physics, numerical methods, and programming. Future extensions will include advanced numerical methods, larger quantum systems, and computational projects connected to research-level physics and quantum computing.
