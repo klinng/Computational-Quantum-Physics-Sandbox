@@ -1,5 +1,9 @@
 # 🌌 Computational & Quantum Physics Sandbox
 
+> An interactive computational physics project connecting numerical linear algebra, quantum mechanics, statistical mechanics, quantum many-body physics, and open quantum systems.
+
+**🚀 Live interactive app:** https://klinng-computational-quantum-physics-sandbox-app-a4dcep.streamlit.app/
+
 A modular computational physics project exploring numerical methods, quantum mechanics, statistical mechanics, quantum many-body systems, and open quantum dynamics.
 
 The project is organized as a progressive sequence of computational modules, moving from basic numerical operators to quantum systems, Monte Carlo methods, exact diagonalization, and density-matrix dynamics.
@@ -17,6 +21,18 @@ The project is organized as a progressive sequence of computational modules, mov
 | **Module 5** | Open Quantum Systems | Density matrices & Lindblad dynamics |
 
 A unified Streamlit application is included at the root of the repository, allowing the different computational experiments to be explored from one interface.
+
+### ⚡ Quick Start
+
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+cd Computational-Quantum-Physics-Sandbox
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+The main entry point is the root-level `app.py`. The individual module folders contain the underlying computational work.
+
 
 ---
 
@@ -67,15 +83,15 @@ For example, a wavefunction can be represented on a spatial grid and differentia
 
 For a test function
 
-\[
+$$
 \psi(x) = \sin(x),
-\]
+$$
 
 the analytical derivative is
 
-\[
+$$
 \frac{d\psi}{dx} = \cos(x).
-\]
+$$
 
 ---
 
@@ -85,16 +101,16 @@ Module 2 uses numerical operators to solve the one-dimensional infinite square w
 
 The Hamiltonian is
 
-\[
+$$
 H =
 -\frac{1}{2}\frac{d^2}{dx^2}.
-\]
+$$
 
 The discretized Schrödinger equation becomes
 
-\[
+$$
 H\psi_n = E_n\psi_n.
-\]
+$$
 
 ### The module calculates
 
@@ -105,12 +121,12 @@ H\psi_n = E_n\psi_n.
 - Analytical energy levels
 - Relative errors
 
-For an infinite square well of width \(L\),
+For an infinite square well of width $L$,
 
-\[
+$$
 E_n =
 \frac{n^2\pi^2}{2L^2}.
-\]
+$$
 
 The numerical solution is compared with this analytical result.
 
@@ -122,16 +138,16 @@ Module 3 introduces statistical mechanics through the one-dimensional classical 
 
 The system consists of spins
 
-\[
+$$
 s_i = \pm1.
-\]
+$$
 
 The Hamiltonian is
 
-\[
+$$
 E =
 -J\sum_i s_i s_{i+1}.
-\]
+$$
 
 The system is simulated using the **Metropolis Monte Carlo algorithm**.
 
@@ -158,17 +174,17 @@ Module 4 extends the Ising model into the quantum regime.
 
 The Hamiltonian is
 
-\[
+$$
 H =
 -J\sum_i \sigma_i^z\sigma_{i+1}^z
 -g\sum_i\sigma_i^x.
-\]
+$$
 
 Here,
 
-- \(J\) is the interaction strength,
-- \(g\) is the transverse-field strength,
-- \(\sigma^x\) and \(\sigma^z\) are Pauli matrices.
+- $J$ is the interaction strength,
+- $g$ is the transverse-field strength,
+- $\sigma^x$ and $\sigma^z$ are Pauli matrices.
 
 The many-body Hilbert space is constructed using tensor products of single-spin operators.
 
@@ -188,8 +204,8 @@ The many-body Hilbert space is constructed using tensor products of single-spin 
 - Ground-state energy
 - First excited-state energy
 - Energy gap
-- Longitudinal magnetization \(M_z\)
-- Transverse magnetization \(M_x\)
+- Longitudinal magnetization $M_z$
+- Transverse magnetization $M_x$
 - Thermal energy
 - Heat capacity
 - Partition function
@@ -205,13 +221,13 @@ Module 5 introduces density matrices and open quantum dynamics.
 
 The state is represented by a density matrix
 
-\[
+$$
 \rho.
-\]
+$$
 
 The evolution is described using the Lindblad master equation:
 
-\[
+$$
 \frac{d\rho}{dt}
 =
 -i[H,\rho]
@@ -222,14 +238,14 @@ L_k\rho L_k^\dagger
 -\frac{1}{2}
 \{L_k^\dagger L_k,\rho\}
 \right).
-\]
+$$
 
 The current implementation focuses on a **pure-dephasing** example with
 
-\[
+$$
 L =
 \sqrt{\gamma}\sigma_z.
-\]
+$$
 
 ### The module studies
 
@@ -255,7 +271,7 @@ The repository includes a root-level:
 app.py
 ```
 
-This is the main interactive Streamlit application.
+This is the main interactive Streamlit application and the recommended entry point for the project.
 
 It provides access to the computational experiments through one interface.
 
@@ -289,8 +305,8 @@ It provides access to the computational experiments through one interface.
 
 **Module 4**
 - Number of spins
-- Coupling \(J\)
-- Transverse field \(g\)
+- Coupling $J$
+- Transverse field $g$
 - Energy spectrum
 - Energy gap
 - Magnetization
@@ -340,9 +356,13 @@ Computational-Quantum-Physics-Sandbox/
     └── Open_Qunatum_system.py
 ```
 
-Older implementations are retained where applicable so that the evolution of the project can be followed.
+Older implementations are retained where applicable so that the evolution of the project can be followed. The root-level `app.py` is the main application entry point; the older Module 4 `app.py` is retained as part of the module history.
 
 ---
+
+## 📝 GitHub Preview
+
+This README uses standard GitHub Markdown. Equations use GitHub-supported math delimiters, so they render as mathematical expressions in the repository preview rather than appearing as raw LaTeX commands. Code blocks remain code blocks intentionally so installation commands and the repository structure are easy to copy.
 
 # 🛠️ Technologies
 
@@ -431,10 +451,10 @@ Numerical derivative vs analytical derivative.
 
 Numerical energy levels vs
 
-\[
+$$
 E_n =
 \frac{n^2\pi^2}{2L^2}.
-\]
+$$
 
 ### Module 3
 
