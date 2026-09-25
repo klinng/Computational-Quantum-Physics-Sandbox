@@ -1,71 +1,563 @@
-# 🌌 Computational & Quantum Physics Journey (Master 1)
+# 🌌 Computational & Quantum Physics Sandbox
 
-This project is an educational computational-physics sandbox developed alongside my first year of Master's studies in Physics. The ultimate goal is to turn mathematical and physical concepts from my coursework into numerical experiments through a progressive journey where each module builds the foundations for the next.
+A modular computational physics project exploring numerical methods, quantum mechanics, statistical mechanics, quantum many-body systems, and open quantum dynamics.
 
-## 🗺️ Semester Roadmap
+The project is organized as a progressive sequence of computational modules, moving from basic numerical operators to quantum systems, Monte Carlo methods, exact diagonalization, and density-matrix dynamics.
 
-- [X] **Module 1: The Matrix Engine** (Aligned with: *Simulations numériques*)
-  - Represent mathematical operators as computational matrices.
-  - Discretize continuous problems onto numerical grids.
-  - Approximate derivatives using finite-difference methods.
-  - Build and manipulate matrices using NumPy to establish foundations for later physics simulations.
+---
 
-- [X] **Module 2: The Quantum State Solver** (Aligned with: *Mécanique quantique*)
-  - Numerically solve the one-dimensional time-independent Schrödinger equation.
-  - Construct a discretized Hamiltonian using finite differences to calculate energy eigenvalues and eigenstates.
-  - Normalize numerical wavefunctions and visualize probability densities.
-  - Compare numerical energy levels with the analytical solution of the infinite square well.
+## 🚀 Project Overview
 
-- [X] **Module 3: The Thermal Bath** (Aligned with: *Physique statistique*)
-  - Study a classical one-dimensional Ising model using the Metropolis Monte Carlo algorithm.
-  - Model thermal fluctuations, spin configurations, and Boltzmann statistics.
-  - Estimate specific heat and magnetic susceptibility from energy and magnetization fluctuations.
-  - *Note: This classical model does not exhibit a finite-temperature phase transition in the thermodynamic limit.*
+| Module | Topic | Main Method |
+|---|---|---|
+| **Module 1** | Matrix Engine | Numerical operators & finite differences |
+| **Module 2** | Quantum Solver | Finite-difference Schrödinger equation |
+| **Module 3** | Thermal Bath | Metropolis Monte Carlo / Classical Ising model |
+| **Module 4** | Quantum Ising Model | Pauli operators & exact diagonalization |
+| **Module 5** | Open Quantum Systems | Density matrices & Lindblad dynamics |
 
-- [X] **Module 4: The Quantum Spin Chain**
-  - Merge the numerical linear-algebra foundations with quantum many-body physics by moving from the classical Ising model to its quantum counterpart.
-  - Construct a quantum Hamiltonian in the many-body Hilbert space using Pauli operators.
-  - Study the transverse-field Ising Hamiltonian:
-    ```math
-    H = -J\sum_i \sigma_i^z\sigma_{i+1}^z -g\sum_i \sigma_i^x
-    ```
-  - Calculate quantum energy eigenvalues/eigenstates and investigate how the external transverse field modifies the system.
-  - Explore thermal occupation of quantum states and calculate quantum observables using the Gibbs distribution.
+A unified Streamlit application is included at the root of the repository, allowing the different computational experiments to be explored from one interface.
 
-- [X] **🚀 Module 5: Open Quantum Systems & Time Dynamics (The Grand Finale)**
-  - Extend quantum state evolution to open quantum systems coupled to an external environment.
-  - Implement time-dependent wavepacket evolution and unitary unitary operators ($U(t) = e^{-iHt/\hbar}$).
-  - Solve the Lindblad master equation for non-unitary density matrix dynamics ($\rho$):
-    ```math
-    \frac{d\rho}{dt} = -\frac{i}{\hbar}[H, \rho] + \sum_k \left( L_k \rho L_k^\dagger - \frac{1}{2} \{L_k^\dagger L_k, \rho\} \right)
-    ```
-  - Investigate quantum decoherence, dissipation, and bipartite entanglement entropy ($S = -\text{Tr}(\rho \ln \rho)$).
+---
 
-## 🧠 Core Competencies Demonstrated
+# 🧭 Project Roadmap
 
-* **Numerical Methods:** Finite-difference discretization, matrix representations, unitary time propagation, and eigenvalue/eigenvector solvers.
-* **Statistical & Quantum Physics:** Monte Carlo sampling, thermal fluctuations, many-body Hilbert spaces, density matrix formalism, and open quantum systems.
-* **Analysis:** Scientific visualization, interactive data analysis, and bridging theoretical physics with programming.
+```text
+Numerical Mathematics
+        │
+        ▼
+Module 1 — Matrix Engine
+        │
+        ▼
+Module 2 — Quantum Solver
+        │
+        ▼
+Module 3 — Classical Statistical Mechanics
+        │
+        ▼
+Module 4 — Quantum Many-Body Physics
+        │
+        ▼
+Module 5 — Open Quantum Systems
+        │
+        ▼
+Unified Interactive Application
+```
 
-## 🛠️ Tech Stack
+The goal is not to simulate one single physical system, but to build a small computational physics environment covering several important numerical techniques.
 
-* **Language:** Python 3
-* **Libraries:** NumPy (numerical arrays), SciPy (scientific solvers & sparse matrices), Matplotlib (visualization), Streamlit (interactive dashboards).
+---
 
-## 📁 Project Structure
+# 📦 Modules
+
+## 1️⃣ Module 1 — Matrix Engine
+
+The first module introduces numerical operators represented as matrices.
+
+### Main concepts
+
+- Spatial discretization
+- Position operators
+- Finite-difference derivatives
+- Numerical differentiation
+- Comparison between numerical and analytical derivatives
+- Matrix-based representation of physical operators
+
+For example, a wavefunction can be represented on a spatial grid and differentiated numerically using a finite-difference matrix.
+
+For a test function
+
+\[
+\psi(x) = \sin(x),
+\]
+
+the analytical derivative is
+
+\[
+\frac{d\psi}{dx} = \cos(x).
+\]
+
+---
+
+# 2️⃣ Module 2 — Quantum Solver
+
+Module 2 uses numerical operators to solve the one-dimensional infinite square well.
+
+The Hamiltonian is
+
+\[
+H =
+-\frac{1}{2}\frac{d^2}{dx^2}.
+\]
+
+The discretized Schrödinger equation becomes
+
+\[
+H\psi_n = E_n\psi_n.
+\]
+
+### The module calculates
+
+- Hamiltonian matrix
+- Numerical eigenvalues
+- Numerical eigenstates
+- Normalized wavefunctions
+- Analytical energy levels
+- Relative errors
+
+For an infinite square well of width \(L\),
+
+\[
+E_n =
+\frac{n^2\pi^2}{2L^2}.
+\]
+
+The numerical solution is compared with this analytical result.
+
+---
+
+# 3️⃣ Module 3 — Thermal Bath
+
+Module 3 introduces statistical mechanics through the one-dimensional classical Ising model.
+
+The system consists of spins
+
+\[
+s_i = \pm1.
+\]
+
+The Hamiltonian is
+
+\[
+E =
+-J\sum_i s_i s_{i+1}.
+\]
+
+The system is simulated using the **Metropolis Monte Carlo algorithm**.
+
+### The simulation calculates
+
+- Energy
+- Magnetization
+- Energy fluctuations
+- Specific heat
+- Magnetic susceptibility
+- Temperature-dependent observables
+
+The simulation supports a reproducible random seed for numerical experiments.
+
+### Physical note
+
+The one-dimensional Ising model does not exhibit a finite-temperature phase transition in the thermodynamic limit.
+
+---
+
+# 4️⃣ Module 4 — Quantum Transverse-Field Ising Model
+
+Module 4 extends the Ising model into the quantum regime.
+
+The Hamiltonian is
+
+\[
+H =
+-J\sum_i \sigma_i^z\sigma_{i+1}^z
+-g\sum_i\sigma_i^x.
+\]
+
+Here,
+
+- \(J\) is the interaction strength,
+- \(g\) is the transverse-field strength,
+- \(\sigma^x\) and \(\sigma^z\) are Pauli matrices.
+
+The many-body Hilbert space is constructed using tensor products of single-spin operators.
+
+### Main computational techniques
+
+- Pauli matrices
+- Tensor products
+- Many-body Hilbert spaces
+- Exact diagonalization
+- Eigenvalue problems
+- Ground-state analysis
+- Thermal states
+
+### The module calculates
+
+- Energy spectrum
+- Ground-state energy
+- First excited-state energy
+- Energy gap
+- Longitudinal magnetization \(M_z\)
+- Transverse magnetization \(M_x\)
+- Thermal energy
+- Heat capacity
+- Partition function
+- Gibbs/Shannon entropy
+
+The model uses periodic boundary conditions.
+
+---
+
+# 5️⃣ Module 5 — Open Quantum Systems
+
+Module 5 introduces density matrices and open quantum dynamics.
+
+The state is represented by a density matrix
+
+\[
+\rho.
+\]
+
+The evolution is described using the Lindblad master equation:
+
+\[
+\frac{d\rho}{dt}
+=
+-i[H,\rho]
++
+\sum_k
+\left(
+L_k\rho L_k^\dagger
+-\frac{1}{2}
+\{L_k^\dagger L_k,\rho\}
+\right).
+\]
+
+The current implementation focuses on a **pure-dephasing** example with
+
+\[
+L =
+\sqrt{\gamma}\sigma_z.
+\]
+
+### The module studies
+
+- Density matrices
+- Lindblad evolution
+- Quantum coherence
+- Population dynamics
+- Bloch-vector components
+- Purity
+- Von Neumann entropy
+- Trace preservation
+- Numerical vs analytical dephasing
+
+For pure dephasing, the populations remain constant while the off-diagonal coherence decays.
+
+---
+
+# 🖥️ Unified Interactive Application
+
+The repository includes a root-level:
+
+```text
+app.py
+```
+
+This is the main interactive Streamlit application.
+
+It provides access to the computational experiments through one interface.
+
+### Available sections
+
+**Module 1**
+- Spatial grid
+- Position operator
+- Numerical derivative
+- Analytical derivative
+- Numerical error
+
+**Module 2**
+- Particle-in-a-box parameters
+- Hamiltonian
+- Energy spectrum
+- Numerical eigenstates
+- Analytical energy levels
+- Relative errors
+
+**Module 3**
+- Number of spins
+- Temperature
+- Coupling strength
+- Monte Carlo steps
+- Random seed
+- Energy
+- Magnetization
+- Specific heat
+- Susceptibility
+
+**Module 4**
+- Number of spins
+- Coupling \(J\)
+- Transverse field \(g\)
+- Energy spectrum
+- Energy gap
+- Magnetization
+- Thermal observables
+- Entropy
+
+**Module 5**
+- Dephasing rate
+- Time evolution
+- Density matrix
+- Coherence
+- Populations
+- Bloch vector
+- Purity
+- Von Neumann entropy
+- Trace preservation
+- Analytical validation
+
+---
+
+# 🗂️ Repository Structure
 
 ```text
 Computational-Quantum-Physics-Sandbox/
 │
-├── Module_1_Matrix_Engine/      # Grid discretization & finite differences
-├── Module_2_Quantum_Solver/     # 1D Schrödinger equation solver
-├── Module_3_Thermal_Bath/        # Classical Ising model & Monte Carlo
-├── Module_4_Quantum_Ising/      # Many-body quantum spin chain
-├── Module_5_Quantum_Systems/    # Open quantum dynamics & Lindblad master equation (Grand Finale)
-│
+├── app.py
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+│
+├── Module_1_Matrix_Engine/
+│   └── ...
+│
+├── Module_2_Quantum_Solver/
+│   ├── ...
+│   └── quantum_solver_old.py
+│
+├── Module_3_Thermal_Bath/
+│   ├── ...
+│   └── thermal_bath_old.py
+│
+├── Module_4_Quantum_Ising_Model/
+│   ├── quantum_ising.py
+│   ├── quantum_ising_finale_old.py
+│   └── app.py
+│
+└── Module_5_Open_Quantum_Systems/
+    └── Open_Qunatum_system.py
+```
 
-## 🎯 Long-Term Goal
+Older implementations are retained where applicable so that the evolution of the project can be followed.
 
-To develop a stronger connection between theoretical physics, numerical methods, and programming. Future extensions will include advanced numerical methods, larger quantum systems, and computational projects connected to research-level physics and quantum computing.
+---
+
+# 🛠️ Technologies
+
+The project is built primarily with Python and uses:
+
+- Python
+- NumPy
+- SciPy
+- Matplotlib
+- Streamlit
+
+### NumPy
+
+Used for arrays, matrices, linear algebra, tensor products, and numerical calculations.
+
+### SciPy
+
+Used for eigenvalue problems, numerical integration, differential equations, and scientific algorithms.
+
+### Matplotlib
+
+Used for wavefunction plots, energy spectra, Monte Carlo observables, quantum dynamics, and numerical comparisons.
+
+### Streamlit
+
+Used for the unified interactive scientific application.
+
+---
+
+# ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+cd Computational-Quantum-Physics-Sandbox
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# ▶️ Running the Unified Application
+
+From the project root:
+
+```bash
+streamlit run app.py
+```
+
+The Streamlit application will start locally and provide access to the different modules.
+
+---
+
+# 🧪 Numerical Validation
+
+The project includes comparisons between numerical and analytical results.
+
+### Module 1
+
+Numerical derivative vs analytical derivative.
+
+### Module 2
+
+Numerical energy levels vs
+
+\[
+E_n =
+\frac{n^2\pi^2}{2L^2}.
+\]
+
+### Module 3
+
+Monte Carlo observables and statistical fluctuations.
+
+### Module 4
+
+Exact diagonalization of the many-body Hamiltonian and consistency checks on the spectrum.
+
+### Module 5
+
+Numerical Lindblad evolution compared with analytical pure-dephasing behavior.
+
+These comparisons help verify the numerical implementations rather than relying only on visual output.
+
+---
+
+# 🔬 Scientific Scope
+
+The project covers several major areas of computational physics:
+
+```text
+Linear Algebra
+      │
+      ├── Matrix operators
+      └── Eigenvalue problems
+             │
+             ▼
+       Quantum Mechanics
+             │
+             ├── Schrödinger equation
+             └── Quantum Ising model
+             │
+             ▼
+   Statistical Mechanics
+             │
+             └── Monte Carlo / Ising model
+             │
+             ▼
+   Open Quantum Systems
+             │
+             └── Density matrices / Lindblad dynamics
+```
+
+This provides a computational introduction to several techniques used in theoretical and computational physics.
+
+---
+
+# 📊 What This Project Demonstrates
+
+- Numerical linear algebra
+- Matrix representations of physical operators
+- Finite-difference methods
+- Eigenvalue problems
+- Numerical differential equations
+- Quantum-mechanical simulations
+- Monte Carlo methods
+- Statistical mechanics
+- Tensor-product Hilbert spaces
+- Exact diagonalization
+- Density matrices
+- Lindblad master equations
+- Scientific visualization
+- Interactive scientific applications
+- Python-based computational workflows
+
+---
+
+# 🔭 Future Development
+
+Possible future improvements include:
+
+- Higher-order finite-difference schemes
+- Additional quantum potentials
+- Larger Ising systems
+- Improved Monte Carlo sampling
+- Additional quantum spin models
+- Sparse matrix implementations
+- Larger-scale exact diagonalization
+- Additional Lindblad operators
+- Dissipative quantum dynamics
+- Multi-qubit open systems
+- Automated numerical tests
+- More extensive analytical validation
+- Cleaner separation between physics engines and user interface
+
+---
+
+# 📌 Current Status
+
+### Implemented
+
+- [x] Module 1 — Matrix Engine
+- [x] Module 2 — Quantum Solver
+- [x] Module 3 — Classical Ising Monte Carlo
+- [x] Module 4 — Quantum Transverse-Field Ising Model
+- [x] Module 5 — Open Quantum Systems
+- [x] Unified Streamlit application
+- [x] Numerical visualization
+- [x] Analytical/numerical comparisons
+- [x] Public project documentation
+
+### Future work
+
+- [ ] Larger-scale simulations
+- [ ] More automated testing
+- [ ] Additional physical models
+- [ ] Further architectural refactoring
+
+---
+
+# 📚 Project Philosophy
+
+The project follows a simple principle:
+
+> Build the physics numerically, verify it analytically where possible, and make the results observable.
+
+Each module introduces a new computational technique while building toward more advanced physical models.
+
+The unified application brings these experiments together into a single interactive environment.
+
+---
+
+# 👨‍💻 Author
+
+Developed as a computational physics project combining numerical methods, quantum mechanics, statistical mechanics, and open quantum systems.
