@@ -139,11 +139,15 @@ Explore what happens when a quantum system interacts with its environment.
 
 The density matrix follows the Lindblad equation:
 
-$$\frac{d\rho}{dt} = -i[H,\rho] + \sum_k \left( L_k\rho L_k^\dagger - \frac{1}{2}\left\{L_k^\dagger L_k,\rho\right\} \right)$$
+$$
+\frac{d\rho}{dt} = -i[H,\rho] + \sum_k \left( L_k \rho L_k^\dagger - \frac{1}{2} (L_k^\dagger L_k \rho + \rho L_k^\dagger L_k) \right)
+$$
 
 For the pure-dephasing model:
 
-$$L = \sqrt{\gamma}\,\sigma_z$$
+$$
+L = \sqrt{\gamma}\sigma_z
+$$
 
 You can visualize:
 
