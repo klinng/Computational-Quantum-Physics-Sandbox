@@ -144,6 +144,7 @@ $$\frac{d\rho}{dt} = -i[H,\rho] + \sum_k \left( L_k\rho L_k^\dagger - \frac{1}{2
 For the pure-dephasing model:
 
 $$L = \sqrt{\gamma}\,\sigma_z$$
+
 You can visualize:
 
 - 🌀 Density-matrix evolution
