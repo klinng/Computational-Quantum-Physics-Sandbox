@@ -137,7 +137,7 @@ The implementation uses **periodic boundary conditions**.
 
 Explore what happens when a quantum system interacts with its environment.
 
-The density matrix follows the Lindblad equation
+The density matrix follows the Lindblad equation:
 
 $$
 \frac{d\rho}{dt}
@@ -152,7 +152,7 @@ L_k\rho L_k^\dagger
 \left\{
 L_k^\dagger L_k,\rho
 \right\}
-\right).
+\right)
 $$
 
 For the pure-dephasing model:
