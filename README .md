@@ -152,7 +152,7 @@ L_k\rho L_k^\dagger
 \left\{
 L_k^\dagger L_k,\rho
 \right\}
-\right)
+\right).
 $$
 
 For the pure-dephasing model:
