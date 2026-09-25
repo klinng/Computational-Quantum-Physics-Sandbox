@@ -33,13 +33,13 @@ Explore basic numerical operators on a one-dimensional spatial grid.
 For example:
 
 $$
-\psi(x)=\sin(x)
+\psi(x) = \sin(x)
 $$
 
 and
 
 $$
-\frac{d\psi}{dx}=\cos(x).
+\frac{d\psi}{dx} = \cos(x)
 $$
 
 The numerical derivative is compared with the analytical result.
@@ -53,13 +53,13 @@ Solve the **one-dimensional infinite square well** using finite differences.
 The Hamiltonian is
 
 $$
-H=-\frac{1}{2}\frac{d^2}{dx^2}.
+H = -\frac{1}{2}\frac{d^2}{dx^2}
 $$
 
 The analytical energy levels are
 
 $$
-E_n=\frac{n^2\pi^2}{2L^2}.
+E_n = \frac{n^2\pi^2}{2L^2}
 $$
 
 You can explore:
@@ -79,13 +79,13 @@ Simulate the **classical 1D Ising model** using Metropolis Monte Carlo.
 Spins are
 
 $$
-s_i=\pm1
+s_i = \pm 1
 $$
 
 with energy
 
 $$
-E=-J\sum_i s_i s_{i+1}.
+E = -J\sum_i s_i s_{i+1}
 $$
 
 Explore how the system changes with temperature and other simulation parameters.
@@ -110,9 +110,9 @@ Move from classical spins to a quantum many-body system.
 The transverse-field Ising Hamiltonian is
 
 $$
-H=
--J\sum_i\sigma_i^z\sigma_{i+1}^z
--g\sum_i\sigma_i^x.
+H =
+-J\sum_i \sigma_i^z\sigma_{i+1}^z
+-g\sum_i \sigma_i^x
 $$
 
 The model is built using **Pauli matrices and tensor products**, then solved by exact diagonalization.
@@ -147,15 +147,18 @@ $$
 \sum_k
 \left(
 L_k\rho L_k^\dagger
--\frac{1}{2}
-\{L_k^\dagger L_k,\rho\}
-\right).
+-
+\frac{1}{2}
+\left\{
+L_k^\dagger L_k,\rho
+\right\}
+\right)
 $$
 
 For the pure-dephasing model:
 
 $$
-L=\sqrt{\gamma}\,\sigma_z.
+L = \sqrt{\gamma}\,\sigma_z
 $$
 
 You can visualize:
@@ -178,6 +181,7 @@ The current implementation focuses on **pure dephasing with $g=0$**.
 All five modules are accessible from one Streamlit application.
 
 ### 🔬 Explore
+
 **Matrix Engine**  
 → Numerical operators and derivatives
 
