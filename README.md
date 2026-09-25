@@ -158,7 +158,7 @@ $$
 For the pure-dephasing model:
 
 $$
-L = \sqrt{\gamma}\,\sigma_z.
+L=\sqrt{\gamma}\,\sigma_z.
 $$
 
 You can visualize:
